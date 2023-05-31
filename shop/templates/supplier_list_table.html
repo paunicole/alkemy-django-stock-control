@@ -1,0 +1,26 @@
+<table class="table mt-3 table-striped table-hover text-center">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">DNI</th>
+      <th scope="col">Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for supplier in suppliers %}
+      <tr>
+        <th scope="row">{{ supplier.id }}</th>
+        <td>{{ supplier.first_name }}</td>
+        <td>{{ supplier.last_name }}</td>
+        <td>{{ supplier.dni }}</td>
+        <td>
+          <a class="btn btn-warning" href="{% url 'supplier-update' supplier.id %}" data-bs-toggle="tooltip" data-bs-placement="right" title="Modificar proveedor #{{ supplier.id }}">
+            <i class="fa-solid fa-pen"></i>
+          </a>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

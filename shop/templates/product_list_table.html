@@ -1,0 +1,28 @@
+<table class="table mt-3 table-striped table-hover text-center">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Stock actual</th>
+      <th scope="col">Proveedor</th>
+      <th scope="col">Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for product in products %}
+      <tr>
+        <th scope="row">{{ product.id }}</th>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.stock_current }}</td>
+        <td>{{ product.supplier }}</td>
+        <td>
+          <a class="btn btn-warning" href="{% url 'product-update' product.id %}" data-bs-toggle="tooltip" data-bs-placement="right" title="Modificar producto #{{ product.id }}">
+            <i class="fa-solid fa-pen"></i>
+          </a>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
